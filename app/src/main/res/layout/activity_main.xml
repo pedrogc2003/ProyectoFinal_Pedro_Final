@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activitys.MainActivity">
+
+    <TextView
+        android:id="@+id/TVPregunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:fontFamily="serif"
+        android:text="¿Qué estas buscando?"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/IIglesias"
+        android:layout_width="145dp"
+        android:layout_height="158dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.135"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TVPregunta"
+        app:srcCompat="@drawable/macarena" />
+
+    <TextView
+        android:id="@+id/TVIgleisas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Iglesias"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/IIglesias"
+        app:layout_constraintStart_toStartOf="@+id/IIglesias"
+        app:layout_constraintTop_toBottomOf="@+id/IIglesias" />
+
+    <TextView
+        android:id="@+id/TVFotos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cerrar Sesión"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/ICerrarSesion"
+        app:layout_constraintStart_toStartOf="@+id/ICerrarSesion"
+        app:layout_constraintTop_toBottomOf="@+id/ICerrarSesion" />
+
+    <ImageView
+        android:id="@+id/IMonumentos"
+        android:layout_width="134dp"
+        android:layout_height="156dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.339"
+        app:layout_constraintStart_toEndOf="@+id/IIglesias"
+        app:layout_constraintTop_toBottomOf="@+id/TVPregunta"
+        app:srcCompat="@drawable/torre_sev" />
+
+    <TextView
+        android:id="@+id/TVMonumentos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Monumentos"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/IMonumentos"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="@+id/IMonumentos"
+        app:layout_constraintTop_toBottomOf="@+id/IMonumentos" />
+
+    <ImageView
+        android:id="@+id/IPlazas"
+        android:layout_width="145dp"
+        android:layout_height="113dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="@+id/IIglesias"
+        app:layout_constraintHorizontal_bias="0.23"
+        app:layout_constraintStart_toStartOf="@+id/IIglesias"
+        app:layout_constraintTop_toBottomOf="@+id/IIglesias"
+        app:srcCompat="@drawable/planza_espana" />
+
+    <TextView
+        android:id="@+id/TVPlazas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Plazas/Parques"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/IPlazas"
+        app:layout_constraintStart_toStartOf="@+id/IPlazas"
+        app:layout_constraintTop_toBottomOf="@+id/IPlazas" />
+
+    <ImageView
+        android:id="@+id/IRestaurantes"
+        android:layout_width="141dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/IMonumentos"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/IMonumentos"
+        app:layout_constraintTop_toBottomOf="@+id/TVMonumentos"
+        app:srcCompat="@drawable/casa_ricardo" />
+
+    <TextView
+        android:id="@+id/TVRestaurantes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Restaurantes"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/IRestaurantes"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toStartOf="@+id/IRestaurantes"
+        app:layout_constraintTop_toBottomOf="@+id/IRestaurantes" />
+
+    <ImageView
+        android:id="@+id/IOtros"
+        android:layout_width="143dp"
+        android:layout_height="111dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintEnd_toEndOf="@+id/IPlazas"
+        app:layout_constraintStart_toStartOf="@+id/IPlazas"
+        app:layout_constraintTop_toBottomOf="@+id/TVPlazas"
+        app:srcCompat="@drawable/alcazar" />
+
+    <TextView
+        android:id="@+id/TVOtros"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lista Actividades"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@+id/IOtros"
+        app:layout_constraintStart_toStartOf="@+id/IOtros"
+        app:layout_constraintTop_toBottomOf="@+id/IOtros" />
+
+    <ImageView
+        android:id="@+id/ICerrarSesion"
+        android:layout_width="119dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toEndOf="@+id/IRestaurantes"
+        app:layout_constraintHorizontal_bias="0.409"
+        app:layout_constraintStart_toStartOf="@+id/IRestaurantes"
+        app:layout_constraintTop_toBottomOf="@+id/TVRestaurantes"
+        app:srcCompat="@drawable/cerrar_sesion" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

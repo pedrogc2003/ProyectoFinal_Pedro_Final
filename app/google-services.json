@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "857386961885",
+    "project_id": "proyectofinal-ba7c6",
+    "storage_bucket": "proyectofinal-ba7c6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:857386961885:android:3c9baa7e6ad68322ac0434",
+        "android_client_info": {
+          "package_name": "com.example.practicaguias_pedro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "857386961885-mr5nanaufpa16bpa6m2fk5hknu3075ql.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvyGI7R0hqvB9rQW3aV-QatVh7XJisU1E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "857386961885-mr5nanaufpa16bpa6m2fk5hknu3075ql.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
