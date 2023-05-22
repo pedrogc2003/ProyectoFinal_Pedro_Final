@@ -4,22 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activitys.Parques">
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:fontFamily="serif"
-        android:text="EN PROCESO..."
-        android:textColor="#000000"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+    android:background="#BFE2FFE3"
+    tools:context=".Activitys.ParquesA">
 
     <TextView
         android:id="@+id/ETPrque"
@@ -35,14 +21,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="489dp"
-        android:layout_height="322dp"
-        android:layout_marginTop="48dp"
+    <Button
+        android:id="@+id/BInsertar_Parque"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#038C08"
+        android:text="Insertar Parque"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ETPrque" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RVParques"
+        android:layout_width="409dp"
+        android:layout_height="584dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETPrque"
-        app:srcCompat="@drawable/planza_espana" />
+        app:layout_constraintTop_toBottomOf="@+id/BInsertar_Parque" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

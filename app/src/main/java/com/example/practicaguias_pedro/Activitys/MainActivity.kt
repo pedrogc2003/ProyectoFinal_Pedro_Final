@@ -28,12 +28,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.IMonumentos.setOnClickListener {
-            val intent = Intent(this,Monumentos::class.java)
+            val intent = Intent(this,MonumentosA::class.java)
             startActivity(intent)
         }
 
         binding.IPlazas.setOnClickListener {
-            val intent = Intent(this,Parques::class.java)
+            val intent = Intent(this,ParquesA::class.java)
             startActivity(intent)
         }
 
@@ -66,15 +66,19 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.m_parques->{
-                val intent = Intent(this,Parques::class.java)
+                val intent = Intent(this,ParquesA::class.java)
                 startActivity(intent)
             }
             R.id.m_monumentos->{
-                val intent = Intent(this,Monumentos::class.java)
+                val intent = Intent(this,MonumentosA::class.java)
                 startActivity(intent)
             }
             R.id.m_restaurantes->{
                 val intent = Intent(this,RestaurantesA::class.java)
+                startActivity(intent)
+            }
+            R.id.m_otros -> {
+                val intent = Intent(this, Otros::class.java)
                 startActivity(intent)
             }
 

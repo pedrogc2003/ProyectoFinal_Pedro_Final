@@ -5,59 +5,56 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.practicaguias_pedro.R
-import com.example.practicaguias_pedro.databinding.ActivityIglesiasBinding
-import com.example.practicaguias_pedro.recyclerViewIglesias.IglesiaAdapter
-import com.example.practicaguias_pedro.recyclerViewIglesias.IglesiasR
+import com.example.practicaguias_pedro.databinding.ActivityMonumentosBinding
+import com.example.practicaguias_pedro.recyclerMonumentos.MonumentosAdapter
+import com.example.practicaguias_pedro.recyclerMonumentos.MonumentosR
 import com.google.firebase.firestore.FirebaseFirestore
 
-class IglesiasA : AppCompatActivity() {
-    private lateinit var binding: ActivityIglesiasBinding
-    private val db = FirebaseFirestore.getInstance()
-    private lateinit var listaIglesias: MutableList<IglesiasR>
-
-    companion object {
-        private const val INSERT_IGLESIA_REQUEST_CODE = 1
-    }
+class MonumentosA : AppCompatActivity() {
+    private lateinit var binding: ActivityMonumentosBinding
+    private lateinit var monumentosAdapter: MonumentosAdapter
+    private lateinit var listaMonumentos: MutableList<MonumentosR>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityIglesiasBinding.inflate(layoutInflater)
+        binding = ActivityMonumentosBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.RVIglesias.layoutManager = LinearLayoutManager(this)
+        listaMonumentos = mutableListOf()
+        monumentosAdapter = MonumentosAdapter(listaMonumentos)
 
-        datos()
+        binding.RVMonumentos.layoutManager = LinearLayoutManager(this)
+        binding.RVMonumentos.adapter = monumentosAdapter
 
-        binding.BInsertarIglesia.setOnClickListener {
-            val intent = Intent(this, Insertar_Iglesia::class.java)
-            startActivityForResult(intent, INSERT_IGLESIA_REQUEST_CODE)
+        binding.BInsertarMonumento.setOnClickListener {
+            val intent = Intent(this, Insertar_Monumento::class.java)
+            startActivity(intent)
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == INSERT_IGLESIA_REQUEST_CODE && resultCode == RESULT_OK) {
-            datos()
-        }
+    override fun onResume() {
+        super.onResume()
+        datos()
     }
 
     private fun datos() {
-        listaIglesias = ArrayList<IglesiasR>()
+        val db = FirebaseFirestore.getInstance()
+        listaMonumentos.clear()
 
-        db.collection("iglesias").get().addOnSuccessListener { querySnapshot ->
+        db.collection("monumentos").get().addOnSuccessListener { querySnapshot ->
             for (document in querySnapshot) {
                 val nombre = document.getString("Nombre") ?: ""
                 val direccion = document.getString("direccion") ?: ""
                 val enlace = document.getString("enlace") ?: ""
                 val horario = document.getString("horario") ?: ""
-                val iglesia = IglesiasR(nombre, direccion, enlace, horario)
-                listaIglesias.add(iglesia)
+
+                val monumento = MonumentosR(nombre, direccion, enlace, horario)
+                listaMonumentos.add(monumento)
             }
-            binding.RVIglesias.adapter = IglesiaAdapter(listaIglesias)
+
+            monumentosAdapter.notifyDataSetChanged()
         }
     }
 

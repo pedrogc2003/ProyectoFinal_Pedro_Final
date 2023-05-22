@@ -9,7 +9,7 @@ import com.example.practicaguias_pedro.databinding.ViewIglesiasSingleBinding
 //Valores que se cogen dentro del Holder y dar valores dentro del Layout
 class IglesiaViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
     val binding = ViewIglesiasSingleBinding.bind(itemView)
-    val miBoton: Button = itemView.findViewById(R.id.BEliminar_Restaurante)
+    val miBoton: Button = itemView.findViewById(R.id.BEliminar_Iglesia)
 
     fun render(IglesiaModel: IglesiasR){
         binding.TVNombreIglesia.text = IglesiaModel.nombre

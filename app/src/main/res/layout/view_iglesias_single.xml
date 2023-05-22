@@ -12,6 +12,7 @@
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="350dp"
+        android:background="#26E2FFE3"
         android:padding="10dp">
 
         <TextView
@@ -45,12 +46,12 @@
             android:id="@+id/textView19"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="68dp"
             android:text="Enlace:"
             android:textColor="#000000"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.102"
+            app:layout_constraintHorizontal_bias="0.097"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TVNombre_Iglesia" />
 
@@ -63,7 +64,7 @@
             android:textColor="#000000"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.11"
+            app:layout_constraintHorizontal_bias="0.104"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TVNombre_Iglesia" />
 
@@ -85,13 +86,14 @@
             android:id="@+id/TVEnlace"
             android:layout_width="268dp"
             android:layout_height="45dp"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="72dp"
             android:text="TextView"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="16sp"
+            android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintHorizontal_bias="0.407"
             app:layout_constraintStart_toEndOf="@+id/textView16"
             app:layout_constraintTop_toBottomOf="@+id/TVNombre_Iglesia" />
 
@@ -110,11 +112,14 @@
             app:layout_constraintTop_toBottomOf="@+id/TVNombre_Iglesia" />
 
         <Button
-            android:id="@+id/BEliminar_Restaurante"
+            android:id="@+id/BEliminar_Iglesia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="28dp"
+            android:backgroundTint="#F10000"
+            android:backgroundTintMode="src_atop"
             android:text="Eliminar"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"

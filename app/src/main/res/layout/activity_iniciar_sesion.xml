@@ -10,9 +10,12 @@
         android:id="@+id/BIniciar_Iniciar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#038C08"
+        android:backgroundTintMode="src_atop"
         android:text="Iniciar Sesión"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETContrasena_Iniciar" />
 
@@ -21,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:backgroundTint="#038C08"
         android:text="Registrarse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,14 +34,14 @@
         android:id="@+id/ETCorreo_Iniciar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Inserta el correo"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ITorre" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
     <EditText
         android:id="@+id/ETContrasena_Iniciar"
@@ -52,13 +56,13 @@
         app:layout_constraintTop_toBottomOf="@+id/ETCorreo_Iniciar" />
 
     <ImageView
-        android:id="@+id/ITorre"
-        android:layout_width="273dp"
-        android:layout_height="370dp"
-        android:layout_marginTop="44dp"
+        android:id="@+id/imageView6"
+        android:layout_width="287dp"
+        android:layout_height="380dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/torre_oro" />
+        app:srcCompat="@drawable/torre" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

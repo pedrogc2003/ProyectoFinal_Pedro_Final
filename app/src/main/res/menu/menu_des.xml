@@ -14,4 +14,7 @@
     <item
         android:id="@+id/m_restaurantes"
         android:title="Restaurantes" />
+    <item
+        android:id="@+id/m_otros"
+        android:title="Lista Actividades" />
 </menu>

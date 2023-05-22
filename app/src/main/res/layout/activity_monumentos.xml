@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activitys.Monumentos">
+    android:background="#BFE2FFE3"
+    tools:context=".Activitys.MonumentosA">
 
     <TextView
         android:id="@+id/TVMonumento"
@@ -20,28 +21,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="430dp"
-        android:layout_height="326dp"
-        android:layout_marginTop="60dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RVMonumentos"
+        android:layout_width="409dp"
+        android:layout_height="656dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TVMonumento"
-        app:srcCompat="@drawable/torre_sev" />
+        app:layout_constraintTop_toBottomOf="@+id/BInsertar_Monumento" />
 
-    <TextView
-        android:id="@+id/textView"
+    <Button
+        android:id="@+id/BInsertar_Monumento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:fontFamily="serif"
-        android:text="EN PROCESO..."
-        android:textColor="#000000"
-        android:textSize="34sp"
-        android:textStyle="bold"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#038C08"
+        android:text="Insertar Monumento"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintTop_toBottomOf="@+id/TVMonumento" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

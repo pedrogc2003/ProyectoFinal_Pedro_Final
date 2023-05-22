@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.practicaguias_pedro.R
@@ -15,6 +16,7 @@ import com.example.practicaguias_pedro.databinding.ActivityOtrosBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.ArrayList
 
 class Otros : AppCompatActivity() {
     lateinit var binding: ActivityOtrosBinding
@@ -24,23 +26,28 @@ class Otros : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityOtrosBinding.inflate(layoutInflater)
+        binding = ActivityOtrosBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         elementos = ArrayList()
 
         getElementos()
 
-        binding.BInsertar.setOnClickListener {
-            addElemento(Lista(nombre = binding.TVOtro.text.toString()))
+        binding.BInsertar.setOnClickListener{
+            if(binding.ETActividad.text.toString().isNullOrEmpty()){
+                Toast.makeText(this, "No hay nada insertado", Toast.LENGTH_SHORT).show()
+            }else{
+                addElemento(Lista(nombre = binding.ETActividad.text.toString()))
+            }
         }
 
 
     }
 
-    fun getElementos(){
+    fun getElementos() {
         CoroutineScope(Dispatchers.IO).launch {
-                elementos = MiLista.database.listaDao().getAllElements()
+            elementos = MiLista.database.listaDao().getAllElements()
             runOnUiThread{
                 adapter = ListaAdapter(elementos,{updateLista(it)},{deleteLista(it)})
                 recyclerView = binding.recycler
@@ -50,7 +57,7 @@ class Otros : AppCompatActivity() {
         }
     }
 
-    fun addElemento(elemento:Lista){
+    fun addElemento(elemento: Lista) {
         CoroutineScope(Dispatchers.IO).launch {
             val id = MiLista.database.listaDao().addElemento(elemento)
             val recoveryElemento = MiLista.database.listaDao().getElementoId(id)
@@ -62,14 +69,14 @@ class Otros : AppCompatActivity() {
         }
     }
 
-    fun updateLista(elemento: Lista){
+    fun updateLista(elemento: Lista) {
         CoroutineScope(Dispatchers.IO).launch {
             elemento.activo = !elemento.activo
             MiLista.database.listaDao().updateLista(elemento)
         }
     }
 
-    fun deleteLista(elemento: Lista){
+    fun deleteLista(elemento: Lista) {
         CoroutineScope(Dispatchers.IO).launch{
             val position = elementos.indexOf(elemento)
             MiLista.database.listaDao().deleteLista(elemento)
@@ -96,15 +103,19 @@ class Otros : AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.m_parques->{
-                val intent = Intent(this,Parques::class.java)
+                val intent = Intent(this,ParquesA::class.java)
                 startActivity(intent)
             }
             R.id.m_monumentos->{
-                val intent = Intent(this,Monumentos::class.java)
+                val intent = Intent(this,MonumentosA::class.java)
                 startActivity(intent)
             }
             R.id.m_restaurantes->{
                 val intent = Intent(this,RestaurantesA::class.java)
+                startActivity(intent)
+            }
+            R.id.m_otros -> {
+                val intent = Intent(this, Otros::class.java)
                 startActivity(intent)
             }
 

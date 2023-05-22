@@ -9,6 +9,8 @@ import com.example.practicaguias_pedro.databinding.ActivityIntroBinding
 
 class Intro : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        Thread.sleep(2000)
+        setTheme(R.style.Theme_PracticaGuias_Pedro )
         super.onCreate(savedInstanceState)
         val binding = ActivityIntroBinding.inflate(layoutInflater)
         setContentView(binding.root)

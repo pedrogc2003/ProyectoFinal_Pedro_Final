@@ -7,50 +7,49 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.practicaguias_pedro.R
-import com.example.practicaguias_pedro.databinding.ActivityRestaurantesBinding
-import com.example.practicaguias_pedro.recyclerViewRestaurantes.RestaurantesAdapter
-import com.example.practicaguias_pedro.recyclerViewRestaurantes.RestaurantesR
+import com.example.practicaguias_pedro.databinding.ActivityIglesiasBinding
+import com.example.practicaguias_pedro.databinding.ActivityParquesBinding
+import com.example.practicaguias_pedro.recyclerViewIglesias.IglesiaAdapter
+import com.example.practicaguias_pedro.recyclerViewIglesias.IglesiasR
+import com.example.practicaguias_pedro.recyclerViewParques.ParquesAdapter
+import com.example.practicaguias_pedro.recyclerViewParques.ParquesR
 import com.google.firebase.firestore.FirebaseFirestore
 
-class RestaurantesA : AppCompatActivity() {
-    lateinit var binding: ActivityRestaurantesBinding
-    lateinit var ListaRestaurantes: MutableList<RestaurantesR>
-    lateinit var adapter: RestaurantesAdapter
+class ParquesA : AppCompatActivity() {
+
+    lateinit var binding: ActivityParquesBinding
+    lateinit var ListaParques: MutableList<ParquesR>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRestaurantesBinding.inflate(layoutInflater)
+        binding = ActivityParquesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.RVRestaurantes.layoutManager = LinearLayoutManager(this)
-        ListaRestaurantes = ArrayList<RestaurantesR>()
-        adapter = RestaurantesAdapter(ListaRestaurantes)
-        binding.RVRestaurantes.adapter = adapter
+        binding.RVParques.layoutManager = LinearLayoutManager(this)
 
         datos()
 
-        binding.BAnaditrRestaurante.setOnClickListener {
-            val intent = Intent(this, Insertar_Restaurante::class.java)
+        binding.BInsertarParque.setOnClickListener {
+            val intent = Intent(this, Insertar_Parque::class.java)
             startActivityForResult(intent, 1) // Inicia la actividad con un resultado esperado
         }
     }
 
     public fun datos() {
         val db = FirebaseFirestore.getInstance()
+        ListaParques = ArrayList<ParquesR>()
 
-        db.collection("restaurantes").get().addOnSuccessListener { querySnapshot ->
-            ListaRestaurantes.clear() // Limpia la lista antes de agregar nuevos elementos
-
-            for (restaurantes in querySnapshot) {
-                var Info = RestaurantesR(
-                    nombre = restaurantes["Nombre"].toString(),
-                    direccion = restaurantes["direccion"].toString(),
-                    enlace = restaurantes["enlace"].toString(),
-                    horario = restaurantes["horario"].toString()
+        db.collection("parques").get().addOnSuccessListener {
+            for (parques in it) {
+                var Info = ParquesR(
+                    nombre = parques["Nombre"].toString(),
+                    direccion = parques["direccion"].toString(),
+                    enlace = parques["enlace"].toString(),
+                    horario = parques["horario"].toString()
                 )
-                ListaRestaurantes.add(Info)
+                ListaParques.add(Info)
             }
-            adapter.notifyDataSetChanged() // Notifica al adaptador sobre el cambio en los datos
+            binding.RVParques.adapter = ParquesAdapter(ListaParques)
         }
     }
 
@@ -60,20 +59,20 @@ class RestaurantesA : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.m_iglesia->{
+        when(item.itemId) {
+            R.id.m_iglesia -> {
                 val intent = Intent(this, IglesiasA::class.java)
                 startActivity(intent)
             }
-            R.id.m_parques->{
+            R.id.m_parques -> {
                 val intent = Intent(this, ParquesA::class.java)
                 startActivity(intent)
             }
-            R.id.m_monumentos->{
+            R.id.m_monumentos -> {
                 val intent = Intent(this, MonumentosA::class.java)
                 startActivity(intent)
             }
-            R.id.m_restaurantes->{
+            R.id.m_restaurantes -> {
                 val intent = Intent(this, RestaurantesA::class.java)
                 startActivity(intent)
             }
@@ -89,7 +88,7 @@ class RestaurantesA : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 1 && resultCode == RESULT_OK) { // Si el código de solicitud y el resultado son correctos
-            datos() // Actualiza la lista de restaurantes
+            datos() // Actualiza la lista de parques
         }
     }
 }
